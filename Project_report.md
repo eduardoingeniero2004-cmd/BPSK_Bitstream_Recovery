@@ -11,13 +11,13 @@ Before implementing the data receiver, the project focused on stabilizing the ph
 ### 2.1. Validating Ideal Modulation
 The first milestone was achieving a stable BPSK modulation. The constellation diagram confirmed the presence of the two symbols ('0' and '1') separated by 180 degrees. The recovered data was clean under these ideal conditions.
 
-![[1st diagram perfect channel.png]]
+![1st Diagram](./Attachments/1st%20diagram%20perfect%20channel.png)
 *Figure 1: Initial BPSK block diagram setup.*
 
-![[Correct phase no costas loop 1.jpg]]
+![Correct Phase No Costas Loop 1](./Attachments/Correct%20phase%20no%20costas%20loop%201.jpg)
 *Figure 2: Stable BPSK constellation diagram under ideal channel conditions.*
 
-![[Bits recovered no costas loop.png]]
+![Bits Recovered No Costas Loop](./Attachments/Bits%20recovered%20no%20costas%20loop.png)
 *Figure 3: Initial recovered data sequence with no channel impairments.*
 
 ### 2.2. Simulating a Non-Ideal Channel
