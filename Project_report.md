@@ -23,14 +23,14 @@ The first milestone was achieving a stable BPSK modulation. The constellation di
 ### 2.2. Simulating a Non-Ideal Channel
 A **Phase Offset** was introduced into the simulated channel to emulate real-world propagation issues. This caused the entire constellation to rotate continuously, making symbol detection impossible.
 
-![[Wrong phase no costas loop.png]]
+![Wrong Phase No Costas Loop](./Attachments/Wrong%20phase%20no%20costas%20loop.png)
 *Figure 4: Rotating constellation due to channel phase offset.*
 
 ### 2.3. The Costas Loop Implementation
 A **Costas Loop** was integrated into the receiver chain to track the suppressed carrier and stabilize the phase. The loop successfully locked, correcting the rotation.
 
 
-![[Correct phase after costas loop.jpg]]
+![Correct Phase After Costas Loop](./Attachments/Correct%20phase%20after%20costas%20loop.jpg)
 *Figure 5: Corrected constellation diagram showing the phase lock achieved by the Costas Loop.*
 
 > [!INFO] Technical Note
@@ -42,10 +42,10 @@ After the Costas Loop stabilized the phase, we were able to recover a bitstream.
 * **Case 1 (Normal Phase):** The bit sequence matches the transmitted data.
 * **Case 2 (Inverted Phase):** The entire bit sequence is logically inverted (all '0's become '1's, and vice-versa) because the Costas Loop locked to the reverse phase.
 
-![[Bits recovery 1st case.png]]
+![Bits Recovery 1st Case](./Attachments/Bits%20recovery%201st%20case.png)
 *Figure 6: Recovered bitstream (Case 1: Normal Phase).*
 
-![[Bits recovery 2nd case.png]]
+![Bits Recovery 2nd Case](./Attachments/Bits%20recovery%202nd%20case.png)
 *Figure 7: Recovered bitstream (Case 2: Inverted Phase).*
 
 ## 3. System Evolution and Receiver Design
@@ -64,7 +64,7 @@ The first improvement was replacing the **Random Source** with a **Vector Source
 > [!MATH] Bandwidth Formula
 > $$BW = 2 \cdot R_s$$
 
-![[2nd diagram.png]]
+![2nd Diagram](./Attachments/2nd%20diagram.png)
 *Figure 8: Updated flowgraph with Vector Source and optimized SpS configuration.*
 
 ### 3.2. Implementing the Full Receiver Logic
@@ -77,7 +77,7 @@ With a high-resolution signal (8 SpS), the receiver architecture became signific
 **Constellation Analysis:**
 Under simulated ideal conditions, the constellation shows high density and clear separation between symbols. This "perfect" recovery is a direct result of the 8 SpS setting and the Costas Loop performance.
 
-![[New constellation.png]]
+![New Constellation](./Attachments/New%20constellation.png)
 *Figure 9: High-fidelity BPSK constellation recovered under ideal conditions.*
 
 > [!IMPORTANT] Design Observation
@@ -107,7 +107,7 @@ To establish a clear baseline, I configured the Vector Source to send a constant
 * **Observation:** The "Message Sent" plot displays a single, horizontal line, representing a continuous byte value.
 * **Interpretation:** This serves as a reference signal with zero amplitude variance, allowing for simple visual verification at the receiver.
 
-![[Message Sent.png]]
+![Message Sent](./Attachments/Message%20Sent.png)
 *Figure 10: Constant test signal (Integer 65) transmitted by the Vector Source.*
 
 ### 5.2. Synchronized Bitstreams (Source vs. Recovered)
@@ -116,7 +116,7 @@ The next step was to verify the temporal synchronization after the Delay block w
 * **Analysis:** The plot shows that both bit sequences are perfectly aligned on the timeline.
 * **Key Finding:** There are no observable shifts or inversions. This confirms that the **Costas Loop** and the **Delay block** have correctly synchronized both the phase and the framing of the 8-bit bus.
 
-![[Bits synchronized.png]]
+![Bits Synchronized](./Attachments/Bits%20synchronized.png)
 *Figure 11: Real-time comparison showing high correlation between transmitted and recovered bitstreams.*
 
 ### 5.3. Final Data Recovery
@@ -125,7 +125,7 @@ The final evidence of success is the reconstruction of the original byte value a
 * **Result:** The "Message Recovered" plot is identical to Figure 10. It shows a single, stable horizontal line at the precise value of **65**.
 * **Conclusion:** The perfect correspondence between the sent and received values proves the integrity of the complete communication link, including the full modulation and decoding chain.
 
-![[Message Received.png]]
+![Message Received](./Attachments/Message%20Received.png)
 *Figure 12: Successfully decoded constant signal (Integer 65) at the receiver.*
 
 > [!SUCCESS] Evidence of Robustness
