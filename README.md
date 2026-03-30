@@ -17,7 +17,7 @@ This repository contains a full **BPSK (Binary Phase Shift Keying)** transceiver
 ## Flowgraph Architecture
 The final design features a complete End-to-End communication link.
 
-![[2nd diagram.png]]
+![](Attachments/2nd%20diagram.png)
 *Figure: Complete BPSK Transceiver with receiver synchronization logic.*
 
 ---
