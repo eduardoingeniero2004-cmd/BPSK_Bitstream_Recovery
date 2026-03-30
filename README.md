@@ -31,7 +31,7 @@ The following results demonstrate the robustness of the synchronization:
 | **Bit Correlation** | 1:1 match between Source & Sink | **Synchronized** |
 | **Data Recovery** | Constant 8-bit output (Value: 65) | **Error-Free** |
 
-![[Bits synchronized.png]]
+![Bits Synchronized](./Attachments/Bits%20synchronized.png)
 *Figure: Real-time bitstream correlation after Delay adjustment.*
 
 ---
